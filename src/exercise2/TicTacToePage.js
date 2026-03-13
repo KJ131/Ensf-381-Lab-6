@@ -1,4 +1,4 @@
-import {userState, useState} from 'react'
+import {useState} from 'react'
 function TicTacToePage() {
   return (
     <>
@@ -7,7 +7,6 @@ function TicTacToePage() {
       </section>
 
       <section className="panel">
-        <div className="ttt-board">{/* Build Square, Board, and calculateWinner in this file. */}</div>
         <div className = 'ttt-board'>
           <Board/>
         </div>
@@ -35,8 +34,6 @@ function Board(){
       return;
     }
     const nextSquares = squares.slice();
-    if(squares[i]) return;
-
     if (xIsNext) {
       nextSquares[i] = 'X';
   } else {
@@ -50,9 +47,9 @@ function Board(){
   const winner = calculateWinner(squares);
   let status;
   if(winner){
-    status = "Winner" + winner;
+    status = "Winner " + winner;
   }else{
-    status = "Next Player" + (xIsNext?"X":"O")
+    status = "Next Player " + (xIsNext?"X":"O")
   }
   return(
     <>
